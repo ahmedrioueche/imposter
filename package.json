@@ -1,0 +1,41 @@
+{
+  "name": "guesser",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "translate": "tsx src/bin/translate.ts",
+    "translate:add": "npm run translate add",
+    "translate:sync": "npm run translate sync",
+    "translate:watch": "tsx src/bin/watch.ts"
+  },
+  "dependencies": {
+    "date-fns": "^4.1.0",
+    "dayjs": "^1.11.13",
+    "dotenv": "^16.4.7",
+    "lucide-react": "^0.468.0",
+    "next": "^15.1.0",
+    "next-themes": "^0.4.6",
+    "node-cron": "^4.2.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-hook-form": "^7.57.0",
+    "react-hot-toast": "^2.5.2",
+    "react-markdown": "^10.1.0",
+    "tailwind-scrollbar-hide": "^1.1.7",
+    "uninstall": "^0.0.0"
+  },
+  "devDependencies": {
+    "@types/next": "^8.0.7",
+    "postcss": "^8",
+    "prettier": "^3.5.3",
+    "tailwindcss": "^3.4.1",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.20.3",
+    "typescript": "^5"
+  }
+}

@@ -1,0 +1,175 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'STIX Two Text';
+  src: url('/fonts/STIXTwoText-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+}
+
+@font-face {
+  font-family: 'Dancing Script';
+  src: url('/fonts/DancingScript-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+}
+
+body {
+  overflow-x: hidden;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Toast CSS Variables */
+:root {
+  --toast-bg: #ffffff;
+  --toast-color: #1f2937;
+  --toast-border: #e5e7eb;
+}
+
+.dark {
+  --toast-bg: #1f2937;
+  --toast-color: #f9fafb;
+  --toast-border: #374151;
+}
+
+/* Custom Animations */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.3s ease-out;
+}
+
+.animate-bounce-in {
+  animation: bounce-in 0.6s ease-out;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Hide scrollbar for WebKit-based browsers */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+/* Hide scrollbar for Firefox */
+html,
+body {
+  scrollbar-width: none; /* Firefox */
+}
+
+/* Hide scrollbar for Internet Explorer 10+ and Edge */
+html,
+body {
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+/* Hide scrollbar manually */
+.hide-scrollbar::-webkit-scrollbar,
+.modal-content::-webkit-scrollbar {
+  display: none;
+}
+
+.no-spinner::-webkit-outer-spin-button,
+.no-spinner::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.no-spinner[type='number'] {
+  -moz-appearance: textfield;
+}
+
+/*------scroll-bar-------------*/
+/* Light Theme Scrollbar */
+.scrollbar-light::-webkit-scrollbar {
+  width: 7px;
+}
+
+.scrollbar-light::-webkit-scrollbar-thumb {
+  background-color: #06b6d4;
+  border-radius: 5px;
+}
+
+.scrollbar-light::-webkit-scrollbar-track {
+  background-color: #f8fafc;
+}
+
+.scrollbar-light::-webkit-scrollbar-corner {
+  background-color: #f8fafc;
+}
+
+/* Dark Theme Scrollbar */
+.scrollbar-dark::-webkit-scrollbar {
+  width: 7px;
+}
+
+.scrollbar-dark::-webkit-scrollbar-thumb {
+  background-color: #06b6d4;
+  border-radius: 5px;
+}
+
+.scrollbar-dark::-webkit-scrollbar-track {
+  background-color: #0f172a;
+}
+
+.scrollbar-dark::-webkit-scrollbar-corner {
+  background-color: #0f172a;
+}
+
+/* Remove the spinner from number inputs */
+input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type='number'] {
+  -moz-appearance: textfield;
+}
