@@ -109,6 +109,7 @@ const GameBoard: React.FC<GameBoardProps> = ({
         <div className='flex flex-col sm:flex-row gap-3'>
           <div className='flex-1'>
             <InputField
+              type='number'
               value={currentGuess}
               onChange={(e) => setCurrentGuess(e.target.value)}
               placeholder={`Enter ${gameState.digitLength}-digit number`}

@@ -62,7 +62,7 @@ export const useNumberGuessingGame = () => {
   const [gameState, setGameState] = useState<GameState>({
     targetNumber: '',
     digitLength: 3,
-    isNumberVisible: false,
+    isNumberVisible: true,
     guesses: [],
     isGameActive: false,
   });

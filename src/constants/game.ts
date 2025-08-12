@@ -8,7 +8,7 @@ export const GAME_MESSAGES = {
   PARTIAL_SCORE: 'Some digits are correct!',
   NO_MATCH: 'No matches, try again!',
   NEW_GAME_CONFIRM: 'Are you sure you want to start a new game? Current progress will be lost.',
-  INVALID_GUESS: 'Please enter a valid number with the correct length.',
+  INVALID_GUESS: 'Please enter a valid number.',
   ENTER_TARGET_NUMBER: 'Enter the target number',
   GENERATE_NEW_NUMBER: 'Generate New Number',
   START_NEW_GAME: 'Start New Game',
@@ -24,8 +24,8 @@ export const GAME_MESSAGES = {
   DIGIT_LENGTH: 'Number Length',
   TARGET_NUMBER: 'Target Number',
   GAME_MODE: 'Game Mode',
-  AUTO_GENERATE: 'Auto Generate',
-  MANUAL_ENTRY: 'Manual Entry',
+  AUTO_GENERATE: 'Auto',
+  MANUAL_ENTRY: 'Manual',
 };
 
 export const SCORING_RULES = {

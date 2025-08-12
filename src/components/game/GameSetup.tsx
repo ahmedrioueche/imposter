@@ -81,6 +81,7 @@ const GameSetup: React.FC<GameSetupProps> = ({ onStartGame, digitLength, onDigit
         {gameMode === 'manual' && (
           <div>
             <InputField
+              type='number'
               label={GAME_MESSAGES.ENTER_TARGET_NUMBER}
               value={manualNumber}
               onChange={(e) => setManualNumber(e.target.value)}

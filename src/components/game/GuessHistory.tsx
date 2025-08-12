@@ -76,9 +76,6 @@ const GuessHistory: React.FC<GuessHistoryProps> = ({ guesses }) => {
               <div className='text-xs text-light-text-secondary dark:text-dark-text-secondary'>
                 {guess.exactMatches} exact, {guess.partialMatches} partial
               </div>
-              <div className='text-xs text-light-text-muted dark:text-dark-text-muted'>
-                {getScoreMessage(guess.score, maxScore)}
-              </div>
             </div>
           </div>
         ))}
