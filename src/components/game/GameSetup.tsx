@@ -27,7 +27,7 @@ const GameSetup: React.FC<GameSetupProps> = ({ onStartGame, digitLength, onDigit
     useTimer: true,
     showExactPartial: false,
     autoSubmit: true,
-    timerDuration: 20,
+    timerDuration: 30,
   });
 
   const handleStartGame = () => {
@@ -170,7 +170,7 @@ const GameSetup: React.FC<GameSetupProps> = ({ onStartGame, digitLength, onDigit
                   timerDuration: Math.max(5, Math.min(300, value)),
                 }));
               }}
-              placeholder='20'
+              placeholder='30'
               min={5}
               max={300}
             />
