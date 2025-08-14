@@ -28,6 +28,7 @@ export type GameState = {
   elapsedTime?: number;
   timerRemaining?: number;
   isTimerExpired?: boolean;
+  hasWon?: boolean;
 };
 
 export type GameMode = 'auto' | 'manual';

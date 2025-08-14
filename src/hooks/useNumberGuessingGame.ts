@@ -100,7 +100,8 @@ export const useNumberGuessingGame = () => {
     if (
       gameState.isGameActive &&
       gameState.options.useTimer &&
-      gameState.timerRemaining !== undefined
+      gameState.timerRemaining !== undefined &&
+      !gameState.hasWon // Stop timer when player wins
     ) {
       interval = setInterval(() => {
         setGameState((prev) => {
@@ -115,7 +116,7 @@ export const useNumberGuessingGame = () => {
             setTimeout(() => {
               audio.pause();
               audio.currentTime = 0;
-            }, 3600);
+            }, 5000);
 
             return {
               ...prev,
@@ -135,7 +136,12 @@ export const useNumberGuessingGame = () => {
     return () => {
       if (interval) clearInterval(interval);
     };
-  }, [gameState.isGameActive, gameState.options.useTimer, gameState.timerRemaining]);
+  }, [
+    gameState.isGameActive,
+    gameState.options.useTimer,
+    gameState.timerRemaining,
+    gameState.hasWon,
+  ]);
 
   const startNewGame = useCallback(
     (mode: GameMode, digitLength: GameDigitLength, options: GameOptions, manualNumber?: string) => {
@@ -189,11 +195,13 @@ export const useNumberGuessingGame = () => {
           timerRemaining: prev.options.useTimer ? prev.options.timerDuration : prev.timerRemaining,
         };
 
-        // Handle winning - play sound but keep game active
+        // Handle winning - play sound, stop timer, but keep game active
         if (isWinning) {
           const audio = new Audio('/audio/yay.mp3');
           audio.play().catch(console.error);
-          // Game continues - don't set isGameActive to false
+          newState.hasWon = true; // Stop the timer
+        } else {
+          newState.hasWon = false; // Reset winning state for non-winning guesses
         }
 
         return newState;
@@ -205,9 +213,9 @@ export const useNumberGuessingGame = () => {
   );
 
   const resetGame = useCallback(() => {
-    setGameState({
+    setGameState((prev) => ({
       targetNumber: '',
-      digitLength: 3,
+      digitLength: prev.digitLength, // Preserve the selected digit length
       isNumberVisible: false,
       guesses: [],
       isGameActive: false,
@@ -220,7 +228,8 @@ export const useNumberGuessingGame = () => {
       },
       timerRemaining: undefined,
       isTimerExpired: false,
-    });
+      hasWon: false,
+    }));
   }, []);
 
   const setDigitLength = useCallback((length: GameDigitLength) => {
