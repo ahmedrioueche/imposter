@@ -26,6 +26,21 @@ export const GAME_MESSAGES = {
   GAME_MODE: 'Game Mode',
   AUTO_GENERATE: 'Auto',
   MANUAL_ENTRY: 'Manual',
+  REPEATED_DIGITS: 'Repeated Digits',
+  ALLOW_REPEATED: 'Allow',
+  NO_REPEATED: 'No Repeated',
+  TIMER_OPTION: 'Timer',
+  USE_TIMER: 'Use Timer',
+  NO_TIMER: 'No Timer',
+  FEEDBACK_DISPLAY: 'Feedback Display',
+  SHOW_EXACT_PARTIAL: 'Show Exact/Partial',
+  HIDE_EXACT_PARTIAL: 'Hide Details',
+  AUTO_SUBMIT: 'Auto Submit',
+  ENABLE_AUTO_SUBMIT: 'Enable',
+  DISABLE_AUTO_SUBMIT: 'Manual',
+  TIMER_DURATION: 'Timer Duration (seconds)',
+  TIME_UP: "Time's up!",
+  CONGRATULATIONS: 'Congratulations! You guessed it!',
 };
 
 export const SCORING_RULES = {

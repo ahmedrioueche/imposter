@@ -1,13 +1,14 @@
 import React from 'react';
-import { GuessResult } from '@/types/game';
+import { GuessResult, GameOptions } from '@/types/game';
 import { GAME_MESSAGES } from '@/constants/game';
 import Card from '@/components/ui/Card';
 
 interface GuessHistoryProps {
   guesses: GuessResult[];
+  options: GameOptions;
 }
 
-const GuessHistory: React.FC<GuessHistoryProps> = ({ guesses }) => {
+const GuessHistory: React.FC<GuessHistoryProps> = ({ guesses, options }) => {
   const getScoreColor = (score: number, maxScore: number) => {
     const percentage = (score / maxScore) * 100;
     if (percentage === 100) return 'text-green-600 dark:text-green-400';
@@ -73,9 +74,11 @@ const GuessHistory: React.FC<GuessHistoryProps> = ({ guesses }) => {
               <div className={`text-xl font-bold ${getScoreColor(guess.score, maxScore)}`}>
                 {guess.score.toFixed(1)}
               </div>
-              <div className='text-xs text-light-text-secondary dark:text-dark-text-secondary'>
-                {guess.exactMatches} exact, {guess.partialMatches} partial
-              </div>
+              {options.showExactPartial && (
+                <div className='text-xs text-light-text-secondary dark:text-dark-text-secondary'>
+                  {guess.exactMatches} exact, {guess.partialMatches} partial
+                </div>
+              )}
             </div>
           </div>
         ))}

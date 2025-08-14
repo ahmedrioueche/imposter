@@ -54,7 +54,7 @@ export default function Page() {
             </div>
 
             <div>
-              <GuessHistory guesses={gameState.guesses} />
+              <GuessHistory guesses={gameState.guesses} options={gameState.options} />
             </div>
           </div>
         )}

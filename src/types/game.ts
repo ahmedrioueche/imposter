@@ -9,12 +9,25 @@ export type GuessResult = {
   timestamp: Date;
 };
 
+export type GameOptions = {
+  allowRepeatedDigits: boolean;
+  useTimer: boolean;
+  showExactPartial: boolean;
+  autoSubmit: boolean;
+  timerDuration: number; // in seconds
+};
+
 export type GameState = {
   targetNumber: string;
   digitLength: GameDigitLength;
   isNumberVisible: boolean;
   guesses: GuessResult[];
   isGameActive: boolean;
+  options: GameOptions;
+  startTime?: Date;
+  elapsedTime?: number;
+  timerRemaining?: number;
+  isTimerExpired?: boolean;
 };
 
 export type GameMode = 'auto' | 'manual';
