@@ -33,9 +33,9 @@ export default function Page() {
       </header>
 
       {/* Main Content */}
-      <main className='max-w-4xl mx-auto px-4 py-8'>
+      <main className='max-w-6xl mx-auto px-4 py-8'>
         {!gameState.isGameActive ? (
-          <div className='max-w-md mx-auto'>
+          <div className='max-w-lg mx-auto'>
             <GameSetup
               onStartGame={startNewGame}
               digitLength={gameState.digitLength}

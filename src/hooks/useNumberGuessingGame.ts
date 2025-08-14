@@ -115,7 +115,7 @@ export const useNumberGuessingGame = () => {
             setTimeout(() => {
               audio.pause();
               audio.currentTime = 0;
-            }, 5000);
+            }, 5700);
 
             return {
               ...prev,
