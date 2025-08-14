@@ -21,7 +21,7 @@ export default function Page() {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <div className='min-h-screen bg-light-background dark:bg-dark-background transition-colors pb-20'>
+    <div className='min-h-screen bg-light-background dark:bg-dark-background transition-colors'>
       {/* Header */}
       <header className='border-b border-light-border dark:border-dark-border bg-light-card dark:bg-dark-card'>
         <div className='max-w-4xl mx-auto px-4 py-4 flex items-center justify-between'>
@@ -60,9 +60,9 @@ export default function Page() {
         )}
       </main>
 
-      {/* Fixed Footer */}
-      <footer className='fixed bottom-0 left-0 right-0 border-t border-light-border dark:border-dark-border bg-light-card dark:bg-dark-card'>
-        <div className='max-w-4xl mx-auto px-4 py-3 text-center'>
+      {/* Footer */}
+      <footer className='border-t border-light-border dark:border-dark-border bg-light-card dark:bg-dark-card mt-12'>
+        <div className='max-w-4xl mx-auto px-4 py-6 text-center'>
           <p className='text-light-text-secondary dark:text-dark-text-secondary text-sm'>
             Guess the number! Exact matches = 1 point, Partial matches = 0.5 points
           </p>
