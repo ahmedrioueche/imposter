@@ -214,7 +214,7 @@ export default function WordReveal({
       )}
 
       {/* Continue Button (appears after timer or when word is revealed) */}
-      {(timeLeft === 0 || (showWord && !isImposter) || isImposter) && (
+      {currentPlayer.isHost && (timeLeft === 0 || (showWord && !isImposter) || isImposter) && (
         <div className='text-center'>
           <p className='text-sm text-light-text-secondary dark:text-dark-text-secondary mb-4'>
             Ready to start voting? Discuss first, then continue when everyone is ready!
@@ -237,14 +237,14 @@ export default function WordReveal({
         >
           {loading ? 'Loading...' : 'Logout'}
         </button>
-
-        {/* Get new word button (with confirm) */}
-        <button
-          onClick={() => setConfirmAction('newWord')}
-          className='px-6 py-3 bg-green-500 hover:bg-green-600 disabled:bg-gray-400 disabled:cursor-not-allowed text-white rounded-lg transition-colors font-semibold'
-        >
-          {loading ? 'Loading...' : 'Get a New Word'}
-        </button>
+        {currentPlayer.isHost && (
+          <button
+            onClick={() => setConfirmAction('newWord')}
+            className='px-6 py-3 bg-green-500 hover:bg-green-600 disabled:bg-gray-400 disabled:cursor-not-allowed text-white rounded-lg transition-colors font-semibold'
+          >
+            {loading ? 'Loading...' : 'Get a New Word'}
+          </button>
+        )}
       </div>
 
       {/* Render confirmation modal */}
