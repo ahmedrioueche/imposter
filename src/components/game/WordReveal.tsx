@@ -230,20 +230,22 @@ export default function WordReveal({
           </div>
         </div>
       )}
-      <button
-        onClick={() => setConfirmAction('leave')}
-        className='px-6 py-3 bg-pink-500 hover:bg-pink-600 disabled:bg-gray-400 disabled:cursor-not-allowed text-white rounded-lg transition-colors font-semibold'
-      >
-        {loading ? 'Loading...' : 'Logout'}
-      </button>
+      <div className='flex flex-row justify-between'>
+        <button
+          onClick={() => setConfirmAction('leave')}
+          className='px-6 py-3 bg-red-500 hover:bg-red-600 disabled:bg-gray-400 disabled:cursor-not-allowed text-white rounded-lg transition-colors font-semibold'
+        >
+          {loading ? 'Loading...' : 'Logout'}
+        </button>
 
-      {/* Get new word button (with confirm) */}
-      <button
-        onClick={() => setConfirmAction('newWord')}
-        className='px-6 py-3 bg-pink-500 hover:bg-pink-600 disabled:bg-gray-400 disabled:cursor-not-allowed text-white rounded-lg transition-colors font-semibold'
-      >
-        {loading ? 'Loading...' : 'Get a New Word'}
-      </button>
+        {/* Get new word button (with confirm) */}
+        <button
+          onClick={() => setConfirmAction('newWord')}
+          className='px-6 py-3 bg-green-500 hover:bg-green-600 disabled:bg-gray-400 disabled:cursor-not-allowed text-white rounded-lg transition-colors font-semibold'
+        >
+          {loading ? 'Loading...' : 'Get a New Word'}
+        </button>
+      </div>
 
       {/* Render confirmation modal */}
       {confirmAction && (
@@ -283,13 +285,13 @@ const ConfirmationModal = ({
       <div className='flex justify-end gap-3'>
         <button
           onClick={onCancel}
-          className='px-4 py-2 bg-gray-200 dark:bg-gray-700 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors'
+          className='px-4 py-2 text-white bg-gray-200 dark:bg-gray-700 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors'
         >
           Cancel
         </button>
         <button
           onClick={onConfirm}
-          className='px-4 py-2 bg-pink-500 hover:bg-pink-600 text-white rounded-lg transition-colors'
+          className='px-4 py-2 bg-red-500 hover:bg-red-600 text-white rounded-lg transition-colors'
         >
           Confirm
         </button>
