@@ -8,6 +8,7 @@ interface WordRevealProps {
   room: Room;
   currentPlayer: Player;
   onContinue: () => void;
+  onGetNewWord: () => void;
   onDeclareImposterVictory: (hostId: string) => void;
   onLeaveRoom: () => void;
   loading: boolean;
@@ -17,11 +18,14 @@ export default function WordReveal({
   room,
   currentPlayer,
   onContinue,
+  onGetNewWord,
+  onLeaveRoom,
   onDeclareImposterVictory,
   loading,
 }: WordRevealProps) {
   const [showWord, setShowWord] = useState(false);
   const [timeLeft, setTimeLeft] = useState(30); // 30 seconds to view word
+  const [confirmAction, setConfirmAction] = useState<null | 'leave' | 'newWord'>(null);
 
   const isImposter = currentPlayer.isImposter;
 
@@ -226,6 +230,70 @@ export default function WordReveal({
           </div>
         </div>
       )}
+      <button
+        onClick={() => setConfirmAction('leave')}
+        className='px-6 py-3 bg-pink-500 hover:bg-pink-600 disabled:bg-gray-400 disabled:cursor-not-allowed text-white rounded-lg transition-colors font-semibold'
+      >
+        {loading ? 'Loading...' : 'Logout'}
+      </button>
+
+      {/* Get new word button (with confirm) */}
+      <button
+        onClick={() => setConfirmAction('newWord')}
+        className='px-6 py-3 bg-pink-500 hover:bg-pink-600 disabled:bg-gray-400 disabled:cursor-not-allowed text-white rounded-lg transition-colors font-semibold'
+      >
+        {loading ? 'Loading...' : 'Get a New Word'}
+      </button>
+
+      {/* Render confirmation modal */}
+      {confirmAction && (
+        <ConfirmationModal
+          message={
+            confirmAction === 'leave'
+              ? 'Are you sure you want to leave the room?'
+              : 'Are you sure you want to get a new word?'
+          }
+          onCancel={() => setConfirmAction(null)}
+          onConfirm={() => {
+            if (confirmAction === 'leave') {
+              onLeaveRoom();
+            } else if (confirmAction === 'newWord') {
+              onGetNewWord();
+            }
+            setConfirmAction(null);
+          }}
+        />
+      )}
     </div>
   );
 }
+
+const ConfirmationModal = ({
+  message,
+  onConfirm,
+  onCancel,
+}: {
+  message: string;
+  onConfirm: () => void;
+  onCancel: () => void;
+}) => (
+  <div className='fixed inset-0 flex items-center justify-center bg-black/50 z-50'>
+    <div className='bg-white dark:bg-dark-card p-6 rounded-lg shadow-lg max-w-sm w-full'>
+      <p className='text-light-text-primary dark:text-dark-text-primary mb-4'>{message}</p>
+      <div className='flex justify-end gap-3'>
+        <button
+          onClick={onCancel}
+          className='px-4 py-2 bg-gray-200 dark:bg-gray-700 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors'
+        >
+          Cancel
+        </button>
+        <button
+          onClick={onConfirm}
+          className='px-4 py-2 bg-pink-500 hover:bg-pink-600 text-white rounded-lg transition-colors'
+        >
+          Confirm
+        </button>
+      </div>
+    </div>
+  </div>
+);

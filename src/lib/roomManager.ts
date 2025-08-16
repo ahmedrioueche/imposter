@@ -6,29 +6,6 @@ class RoomManager {
 
   constructor() {
     this.loadFromStorage();
-    this.createDemoRooms();
-  }
-
-  private createDemoRooms() {
-    // Create some demo rooms for testing
-    if (this.rooms.size === 0) {
-      const demoRoom1 = this.createRoom('Demo Player', 'Demo Room 1');
-      const demoRoom2 = this.createRoom('Test User', 'Test Room');
-
-      // Override the codes to be predictable for testing
-      this.rooms.delete(demoRoom1.code);
-      this.rooms.delete(demoRoom2.code);
-
-      demoRoom1.code = '123456';
-      demoRoom1.id = '123456';
-      demoRoom2.code = '654321';
-      demoRoom2.id = '654321';
-
-      this.rooms.set('123456', demoRoom1);
-      this.rooms.set('654321', demoRoom2);
-
-      this.saveToStorage();
-    }
   }
 
   private saveToStorage() {

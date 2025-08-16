@@ -74,7 +74,7 @@ export default function RoomSetup({ onCreateRoom, onJoinRoom }: RoomSetupProps) 
 
   if (mode === 'menu') {
     return (
-      <div className='max-w-md mx-auto space-y-6'>
+      <div className='max-w-md mx-auto space-y-6 mt-20 '>
         <div className='text-center mb-8'>
           <h1 className='text-3xl font-bold text-light-text-primary dark:text-dark-text-primary mb-2'>
             Multiplayer Game

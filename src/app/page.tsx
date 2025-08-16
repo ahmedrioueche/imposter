@@ -31,14 +31,14 @@ export default function Page() {
       <header className='border-b border-light-border dark:border-dark-border bg-light-card dark:bg-dark-card'>
         <div className='max-w-4xl mx-auto px-3 sm:px-4 py-3 sm:py-4 flex items-center justify-between'>
           <h1 className='font-dancing text-xl sm:text-2xl font-bold text-light-text-primary dark:text-dark-text-primary truncate'>
-            Multiplayer Game
+            Imposter
           </h1>
           <ThemeToggle theme={theme} onToggle={toggleTheme} />
         </div>
       </header>
 
       {/* Main Content */}
-      <main className='w-full max-w-6xl mx-auto px-3 sm:px-4 py-4 sm:py-8'>
+      <main className='w-full max-w-6xl mx-auto px-4 sm:px-4 py-4 sm:py-8'>
         {!roomState.currentRoom ? (
           <RoomSetup onCreateRoom={createRoom} onJoinRoom={joinRoom} />
         ) : // Check if room has game state to show GameInterface or RoomLobby
@@ -58,15 +58,6 @@ export default function Page() {
           />
         )}
       </main>
-
-      {/* Footer */}
-      <footer className='border-t border-light-border dark:border-dark-border bg-light-card dark:bg-dark-card mt-8 sm:mt-12'>
-        <div className='max-w-4xl mx-auto px-3 sm:px-4 py-4 sm:py-6 text-center'>
-          <p className='text-light-text-secondary dark:text-dark-text-secondary text-xs sm:text-sm'>
-            Create or join a room to play with friends!
-          </p>
-        </div>
-      </footer>
 
       {/* Toast Notifications */}
       <Toaster

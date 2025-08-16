@@ -8,6 +8,7 @@ import GameLobby from './GameLobby';
 import GameResults from './GameResults';
 import VotingPhase from './VotingPhase';
 import WordReveal from './WordReveal';
+import { WordGenerator } from '@/lib/wordGenerator';
 
 interface GameInterfaceProps {
   room: Room;
@@ -50,11 +51,10 @@ export default function GameInterface({ room, currentPlayer, onLeaveRoom }: Game
             room={currentGameRoom}
             currentPlayer={currentGamePlayer}
             onContinue={startVoting}
+            onGetNewWord={nextRound}
             onDeclareImposterVictory={declareImposterVictory}
             loading={loading}
-            onLeaveRoom={function (): void {
-              throw new Error('Function not implemented.');
-            }}
+            onLeaveRoom={onLeaveRoom}
           />
         );
 

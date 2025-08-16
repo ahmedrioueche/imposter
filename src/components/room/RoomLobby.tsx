@@ -35,22 +35,25 @@ export default function RoomLobby({
   return (
     <div className='max-w-2xl mx-auto space-y-6'>
       {/* Room Header */}
-      <div className='bg-light-card dark:bg-dark-card rounded-lg p-6 border border-light-border dark:border-dark-border'>
-        <div className='flex items-center justify-between mb-4'>
+      <div className='space-y-4 bg-light-card dark:bg-dark-card rounded-lg p-6 border border-light-border dark:border-dark-border'>
+        <div className='flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3'>
+          {/* Left: Room Name */}
           <div>
             <h2 className='text-2xl font-bold text-light-text-primary dark:text-dark-text-primary'>
               {room.name}
             </h2>
-            <p className='text-light-text-secondary dark:text-dark-text-secondary'>
-              Room Code: {room.code}
-            </p>
           </div>
+
+          {/* Right: Room Code Button */}
           <button
             onClick={copyRoomCode}
-            className='flex items-center gap-2 px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition-colors'
+            className='flex items-center gap-2 px-3 py-1.5 text-sm font-medium 
+                   text-blue-600 bg-blue-50 hover:bg-blue-100 
+                   dark:bg-blue-900/30 dark:text-blue-400 dark:hover:bg-blue-900/50 
+                   rounded-md transition-colors w-fit sm:w-auto sm:ml-auto'
           >
             <Copy size={16} />
-            {copied ? 'Copied!' : 'Copy Code'}
+            {copied ? 'Copied!' : `Room Code: ${room.code}`}
           </button>
         </div>
 
