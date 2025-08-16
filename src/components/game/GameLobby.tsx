@@ -170,7 +170,6 @@ export default function GameLobby({
               onClick={handleLeaveClick}
               className='flex items-center gap-2 px-4 py-2 bg-red-500 hover:bg-red-600 text-white rounded-lg transition-colors'
             >
-              <LogOut size={16} />
               Leave
             </button>
 
@@ -180,7 +179,6 @@ export default function GameLobby({
                 disabled={!canStartGame || loading}
                 className='flex items-center gap-2 px-6 py-2 bg-green-500 hover:bg-green-600 disabled:bg-gray-400 disabled:cursor-not-allowed text-white rounded-lg transition-colors'
               >
-                <Play size={16} />
                 {loading ? 'Starting...' : 'Start Game'}
               </button>
             )}

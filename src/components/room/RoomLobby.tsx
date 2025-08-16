@@ -125,7 +125,6 @@ export default function RoomLobby({
           onClick={onLeaveRoom}
           className='flex items-center gap-2 px-6 py-3 bg-red-500 hover:bg-red-600 text-white rounded-lg transition-colors'
         >
-          <LogOut size={16} />
           Leave Room
         </button>
 
@@ -134,7 +133,6 @@ export default function RoomLobby({
             onClick={onStartGame}
             className='flex items-center gap-2 px-6 py-3 bg-green-500 hover:bg-green-600 text-white rounded-lg transition-colors ml-auto'
           >
-            <Play size={16} />
             Start Game
           </button>
         )}
